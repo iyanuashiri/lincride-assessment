@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import datetime
 from pathlib import Path
 from decouple import config
 
@@ -22,7 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+
+# SECRET_KEY = config('SECRET_KEY')
+
+SECRET_KEY = 'django-insecure-dk#wny(uhekehshi1x$@@*8y!d2hh@tyw))8@g*d7pqejcmq58'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,6 +48,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_yasg',
     "corsheaders",
+    
+    'lincride.rides.apps.RidesConfig',
+    
 ]
 
 MIDDLEWARE = [
@@ -76,9 +83,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
-# AUTH_USER_MODEL = 'accounts.Account'
-
 
 
 # Database
@@ -142,3 +146,9 @@ REST_FRAMEWORK = {
 
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+BASE_FARE = 2.5
+PER_KM_RATE = 1.0
+PEAK_TIME_START = datetime.time(17, 0)
+PEAK_TIME_END = datetime.time(20, 0)
