@@ -40,7 +40,7 @@ python manage.py test lincride/rides/tests/ -v 2
 ```
 
 
-Visit `http://localhost:8000` in your browser.
+Visit `http://localhost:8000/api/v1/calculate-fare/?distance=5&traffic_level=low&demand_level=normal` in your postman.
 
 
 1. I added the Ride data model for audit reasons. 
